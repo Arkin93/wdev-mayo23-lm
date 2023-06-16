@@ -5,14 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The 2nd Law</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #general {
+            position:absolute;
+            width: 100%;
+        }
+        #titulo {
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
+        #header {
+            width: 100%;
+            float: left;
+            margin-bottom: 50px;
+        }
+        #cover {
+            margin-left: 50px;
+        }
+        #main {
+            height: 850px;
+            width: 100%;
+            background-color: black;
+            color:white;
+        }
+        #playlist {
+            margin-left: 50px;
+        }
+        #back {
+            background-color: black;
+            color: white;
+
+        }
+        #footer {
+            text-align: center;
+            background-color: darkred;
+            float: left;
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    <div>
-        <h1>The 2nd Law (2012)</h1>
+<div>
+    <div id="general">
+    <div id="header">
+        <h1 id="titulo">The 2nd Law (2012)</h1>
+    <div id="cover">
         <img src="img\The 2nd Law.jpg" alt="The 2nd Law" height="300" width="300">
     </div>
-    <div>
-        <table>
+    </div>
+    <div id="main">
+        <table id="playlist">
             <tr>
                 <td>
                     01 Supremacy
@@ -80,8 +126,12 @@
             </tr>
         </table>
     </div>
-    <div>
+    <div id="back">
         <a href="muse.html">Volver al inicio</a>
+    </div>
+    <div id="footer">
+        <h3 id="year">2023</h3>
+    </div>
     </div>
 </body>
 </html>

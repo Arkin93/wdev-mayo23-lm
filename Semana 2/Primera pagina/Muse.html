@@ -5,19 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muse</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #general {
+            position:absolute;
+            width: 100%;
+        }
+        #titulo {
+            text-align: center;
+            background-color: white;
+            color: black;
+        }
+        #header {
+            width: 100%;
+            float: left;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
+        #biografia {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        #main {
+            height: 850px;
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+        #discografia {
+            margin-left: 50px;
+        }
+        #footer {
+            text-align: center;
+            background-color: darkred;
+            float: left;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>
+    <div id="general">
+    <div id="header">
+        <h1 id="titulo">
             Muse
         </h1>
-        <img src="img\Muse.jpg" alt="Muse">
-        <p>
+        <center><img src="img\Muse.jpg" alt="Muse"></center>
+        <p id="biografia">
             Muse es una banda de rock británica formada en 1994, en Teignmouth, Devon. Desde su formación, sus integrantes son: Matt Bellamy, Christopher Wolstenholme y Dominic Howard.
         </p>
     </div>
-    <div>
-        <h2>Discografia</h2>
+    <div id="main">
+    <div id="discografia">
+        <h2 id="subtitulo">Discografia</h2>
         <ul>
             <li>
                 <a href="Showbiz.html">Showbiz</a>
@@ -47,6 +90,11 @@
                 <a href="Will of the People.html">Will of the People</a>
             </li>
         </ul>
+    </div>
+    </div>
+    <div id="footer">
+            <h3 id="year">2023</h3>
+    </div>
     </div>
 </body>
 </html>
