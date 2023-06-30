@@ -47,7 +47,7 @@
             <a name="" id="" class="btn btn-success" href="#" role="button" onclick="mostrarmensaje()">Imprimir mensaje</a>
             <a name="" id="" class="btn btn-primary" href="#" role="button" onclick="abrirpagina()">Abrir</a>
             <a name="" id="" class="btn btn-danger" href="#" role="button" onclick="fecha()">Mostrar fecha</a>
-            <a name="" id="" class="btn btn-warning" href="#" role="button" onclick="numero()">Mostrar numero</a>
+            <a name="" id="" class="btn btn-info" href="#" role="button" onclick="numero()">Mostrar numero</a>
           </form>
     </div>
   </main>
@@ -82,7 +82,8 @@
     }
 
     function numero(){
-      var numero = document.getElementById("numero").value;
+      var numero = Number(document.getElementById("numero").value);
+      var numero = numero + 12;
       var mensajepersonalizado = "El numero es " + numero;
       alert(mensajepersonalizado);
     } 
