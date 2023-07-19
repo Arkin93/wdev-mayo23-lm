@@ -45,6 +45,9 @@
             <button type="button" class="btn btn-warning" onclick="resultadodivision()">Division /</button>
           </div>
       </div>
+      <div>
+        <span id="soyresultado">---</span>
+      </div>
     </div>
   </main>
   <footer>
@@ -90,6 +93,11 @@
         var resultadoab = primervalor / segundovalor;
         var division = "El resultado de " + primervalor + " dividido por " + segundovalor + " es " + resultadoab;
         alert(division);
+    }
+
+    function mostrarmensajehtml(){
+      numero = Number(document.getElementById("numero").value);
+      document.getElementById("soyresultado").innerHTML = numero;
     }
   </script>
 </body>
