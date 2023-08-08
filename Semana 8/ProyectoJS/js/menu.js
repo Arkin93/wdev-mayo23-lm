@@ -18,6 +18,13 @@ menuprincipal.innerHTML += `
                 <a class="dropdown-item" href="crearcurso.html">Crear Curso</a>
             </div>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estudiantes</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="listarestudiantes.html">Listar Estudiantes</a>
+                <a class="dropdown-item" href="añadirestudiante.html">Añadir Estudiante</a>
+            </div>
+        </li>
     </ul>
 </div>
 </nav>`;

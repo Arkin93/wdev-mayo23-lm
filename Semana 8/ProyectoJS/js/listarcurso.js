@@ -1,13 +1,16 @@
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var apiconsultar = "ListaCurso.php";
 var apieliminar = "BorrarCursos.php"
+var apieditar = "ActualizarCursos.php";
+
 const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"))
+//const modalSuccess = new bootstrap.Modal(document.getElementById('modalSuccess'))
 
 let tablaresultado = document.querySelector('#tablaresultado')
 
 function consultardatos(){
-    //fetch sirve para extraer, insertar, modificar, elminar, consultar datos
+    //fetch sirve para extraer, insertar, modificar, eliminar, consultar datos
     apiurl = apibase + apiconsultar;
     fetch(apiurl)
     .then(estructura => estructura.json())
@@ -87,6 +90,40 @@ function mostrarEditarModal(id, nombre, descripcion, tiempo){
     document.getElementById('tiempo').value = tiempo;
     myModalEditar.show();
 
+}
+
+formulario.addEventListener('submit', function(e)
+{
+    e.preventDefault();
+    //alert('salvando');
+
+    var datosEnviar = {
+        "nombre":document.getElementById('nombre').value,
+        "descripcion":document.getElementById('descripcion').value,
+        "tiempo":document.getElementById('tiempo').value,
+        "usuario":"Arkin"
+    }
+
+    console.log(datosEnviar);
+
+    apiurl = apibase + apieditar;
+    fetch(apiurl,
+        {
+            method: 'POST',
+            body: JSON.stringify(datosEnviar)
+        })
+    .then(estructura => estructura.json())
+    .then((datosrespuesta) => {
+        alert("Salvado")
+            //modalSuccess.show()
+            completeInsert()
+    })
+    .catch(console.log);
+
+});
+
+function completeInsert(){
+    window.location = 'listarcurso.html';
 }
 
 //crear una funcion parecida a la del submit
