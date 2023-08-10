@@ -95,16 +95,14 @@ function mostrarEditarModal(id, nombre, descripcion, tiempo){
 formulario.addEventListener('submit', function(e)
 {
     e.preventDefault();
-    //alert('salvando');
 
     var datosEnviar = {
+        "id":document.getElementById('id').value,
         "nombre":document.getElementById('nombre').value,
         "descripcion":document.getElementById('descripcion').value,
         "tiempo":document.getElementById('tiempo').value,
         "usuario":"Arkin"
     }
-
-    console.log(datosEnviar);
 
     apiurl = apibase + apieditar;
     fetch(apiurl,
@@ -115,7 +113,7 @@ formulario.addEventListener('submit', function(e)
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
         alert("Salvado")
-            //modalSuccess.show()
+            // modalSuccess.show()
             completeInsert()
     })
     .catch(console.log);
@@ -126,9 +124,6 @@ function completeInsert(){
     window.location = 'listarcurso.html';
 }
 
-//crear una funcion parecida a la del submit
-//cambiar el metodo de insertar por el editar
-//crear una funcion similar a completedelete
 
 
 consultardatos();

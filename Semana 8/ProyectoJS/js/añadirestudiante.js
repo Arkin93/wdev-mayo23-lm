@@ -9,15 +9,17 @@ formulario.addEventListener('submit', function(e)
 
     var datosEnviar = {
         "cedula":document.getElementById('cedula').value,
-        "email":document.getElementById('email').value,
+        "correoelectronico":document.getElementById('correoelectronico').value,
         "telefono":document.getElementById('telefono').value,
-        "celular":document.getElementById('celular').value,
-        "nacimiento":document.getElementById('nacimiento').value,
+        "telefonocelular":document.getElementById('telefonocelular').value,
+        "fechanacimiento":document.getElementById('fechanacimiento').value,
+        "sexo":document.getElementById('sexo').value,
         "direccion":document.getElementById('direccion').value,
         "nombre":document.getElementById('nombre').value,
-        "primerapellido":document.getElementById('primerapellido').value,
-        "segundoapellido":document.getElementById('segundoapellido').value,
+        "apellidopaterno":document.getElementById('apellidopaterno').value,
+        "apellidomaterno":document.getElementById('apellidomaterno').value,
         "nacionalidad":document.getElementById('nacionalidad').value,
+        "idCarreras":document.getElementById('idCarreras').value,
         "usuario":"Arkin"
     }
 
