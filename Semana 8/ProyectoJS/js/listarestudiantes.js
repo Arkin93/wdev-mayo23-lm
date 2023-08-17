@@ -1,6 +1,6 @@
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var apiconsultar = "ListaEstudiantes.php";
-var apieliminar = "BorrarEstudiantes.php"
+var apieliminar = "BorrarEstudiantes.php";
 var apieditar = "ActualizarEstudiantes.php";
 
 const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
@@ -131,7 +131,6 @@ function ajustardatostabla(datos){
             })
         .then(estructura => estructura.json())
         .then((datosrespuesta) => {
-            alert("Salvado")
                 // modalSuccess.show()
                 completeInsert()
         })

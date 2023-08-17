@@ -25,6 +25,27 @@ menuprincipal.innerHTML += `
                 <a class="dropdown-item" href="añadirestudiante.html">Añadir Estudiante</a>
             </div>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profesores</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="listarprofesores.html">Listar Profesores</a>
+                <a class="dropdown-item" href="añadirprofesor.html">Añadir Profesor</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Grupos</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="listargrupo.html">Listar Grupos</a>
+                <a class="dropdown-item" href="creargrupo.html">Crear Grupo</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="listarusuarios.html">Listar Usuarios</a>
+                <a class="dropdown-item" href="crearusuario.html">Crear Usuario</a>
+            </div>
+        </li>
     </ul>
 </div>
 </nav>`;

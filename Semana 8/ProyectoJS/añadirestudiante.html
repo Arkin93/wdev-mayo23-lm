@@ -43,7 +43,12 @@
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Genero</label>
-            <input required type="text" name="sexo" id="sexo" class="form-control" placeholder="Inserte el genero" aria-describedby="helpId">
+            <select required class="form-select" name="sexo" id="sexo" aria-describedby="helpId">
+                <option value="" disabled selected>Selecciona el sexo</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Direccion</label>
@@ -75,8 +80,6 @@
         </form>
     </div>
 
-    <!-- Modal Body -->
-    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
     <div class="modal fade" id="modalSuccess" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
@@ -90,14 +93,6 @@
             </div>
         </div>
     </div>
-    
-    
-    <!-- Optional: Place to the bottom of scripts -->
-    <!-- <script>
-        const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
-    
-    </script> -->
-
 
   </main>
   <footer>
