@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -19,7 +19,8 @@
     </div>
   </header>
   <main>
-    <div class="container-sm">
+    <div class="container-fluid">
+    <div class="container-lg">
         <form id="formulario">
         <div class="mb-3">
           <label for="" class="form-label">Cedula</label>
@@ -74,9 +75,11 @@
             <label for="" class="form-label">ID Carrera</label>
             <input required type="text" name="idCarreras" id="idCarreras" class="form-control" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
           </div>
+          <center>
           <button type="reset" class="btn btn-danger">Reset</button>
             ||
             <button type="submit" class="btn btn-success">Enviar</button>
+          </center>
         </form>
     </div>
 
@@ -93,7 +96,7 @@
             </div>
         </div>
     </div>
-
+  </div>
   </main>
   <footer>
     <!-- place footer here -->
