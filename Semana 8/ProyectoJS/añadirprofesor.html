@@ -13,71 +13,73 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="bg-dark">
   <header>
     <div id="menuprincipal">
     </div>
   </header>
   <main>
-    <div class="container-fluid">
-      <div class="container-lg">
+    <div class="container">
+      <div class="container-lg bg-secondary bg-opacity-25 border border-warning border-3 rounded-4 text-light shadow-lg p-3 mb-5 bg-body-tertiary rounded mt-4 p-5">
           <form id="formulario">
             <div class="mb-3">
               <label for="" class="form-label">Cedula</label>
-              <input required type="number" class="form-control" name="cedula" id="cedula" placeholder="Insertar el numero de cedula" aria-describedby="fileHelpId">
+              <input required type="number" class="form-control bg-secondary bg-opacity-25 text-light" name="cedula" id="cedula" placeholder="Insertar el numero de cedula" aria-describedby="fileHelpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Correo Electronico</label>
-              <input required type="email" class="form-control" name="correoelectronico" id="correoelectronico" placeholder="Insertar el correo electronico" aria-describedby="fileHelpId">
+              <input required type="email" class="form-control bg-secondary bg-opacity-25 text-light" name="correoelectronico" id="correoelectronico" placeholder="Insertar el correo electronico" aria-describedby="fileHelpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Telefono (Opcional)</label>
-              <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Insertar el telefono" aria-describedby="fileHelpId">
+              <input type="tel" class="form-control bg-secondary bg-opacity-25 text-light" name="telefono" id="telefono" placeholder="Insertar el telefono" aria-describedby="fileHelpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Telefono Celular</label>
-              <input required type="tel" class="form-control" name="telefonocelular" id="telefonocelular" placeholder="Insertar el telefono celular" aria-describedby="fileHelpId">
+              <input required type="tel" class="form-control bg-secondary bg-opacity-25 text-light" name="telefonocelular" id="telefonocelular" placeholder="Insertar el telefono celular" aria-describedby="fileHelpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Fecha de nacimiento</label>
-              <input required type="date" class="form-control" name="fechanacimiento" id="fechanacimiento" placeholder="Insertar la fecha de nacimiento" aria-describedby="fileHelpId">
+              <input required type="date" class="form-control bg-secondary bg-opacity-25 text-light text-opacity-25" name="fechanacimiento" id="fechanacimiento" placeholder="Insertar la fecha de nacimiento" aria-describedby="fileHelpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Genero</label>
-              <select required class="form-select" name="sexo" id="sexo" aria-describedby="helpId">
-                  <option value="" disabled selected>Selecciona el sexo</option>
-                  <option value="Masculino">Masculino</option>
-                  <option value="Femenino">Femenino</option>
-                  <option value="Otro">Otro</option>
+              <select required class="form-select bg-secondary bg-opacity-25 text-light text-opacity-25" name="sexo" id="sexo" aria-describedby="helpId">
+                  <option class="text-dark text-opacity-75" value="" disabled selected>Selecciona el sexo</option>
+                  <option class="text-dark text-opacity-75" value="Masculino">Masculino</option>
+                  <option class="text-dark text-opacity-75" value="Femenino">Femenino</option>
+                  <option class="text-dark text-opacity-75" value="Otro">Otro</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Direccion</label>
-              <input required type="text" name="direccion" id="direccion" class="form-control" placeholder="Inserte la direccion" aria-describedby="helpId">
+              <input required type="text" name="direccion" id="direccion" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte la direccion" aria-describedby="helpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Nombre</label>
-              <input required type="text" name="nombre" id="nombre" class="form-control" placeholder="Inserte el nombre" aria-describedby="helpId">
+              <input required type="text" name="nombre" id="nombre" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el nombre" aria-describedby="helpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Primer apellido</label>
-              <input required type="text" name="apellidopaterno" id="apellidopaterno" class="form-control" placeholder="Inserte el primer apellido" aria-describedby="helpId">
+              <input required type="text" name="apellidopaterno" id="apellidopaterno" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el primer apellido" aria-describedby="helpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Segundo apellido</label>
-              <input required type="text" name="apellidomaterno" id="apellidomaterno" class="form-control" placeholder="Inserte el segundo apellido" aria-describedby="helpId">
+              <input required type="text" name="apellidomaterno" id="apellidomaterno" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el segundo apellido" aria-describedby="helpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Nacionalidad</label>
-              <input required type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
+              <input required type="text" name="nacionalidad" id="nacionalidad" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
             </div>
             <div class="mb-3">
               <label for="" class="form-label">ID Carrera</label>
-              <input required type="number" name="idCarreras" id="idCarreras" class="form-control" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
+              <input required type="number" name="idCarreras" id="idCarreras" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
             </div>
+          <center>
             <button type="reset" class="btn btn-danger">Reset</button>
               ||
               <button type="submit" class="btn btn-success">Enviar</button>
+            </center>
             </form>
         </div>
 
@@ -96,8 +98,8 @@
       </div>
 </div>
   </main>
-  <footer>
-    <!-- place footer here -->
+  <footer class="py my border-top">
+    <p class="text-center text-light p-3">© 2023 Arkin</p>
   </footer>
   <script src="js/menu.js"></script>
   <!-- Bootstrap JavaScript Libraries -->

@@ -14,6 +14,7 @@ formulario.addEventListener('submit', function(e)
         "usuario":"Arkin"
     }
 
+    console.log(datosEnviar);
     apiurl = apibase + apicrear;
     fetch(apiurl,
         {
@@ -27,7 +28,7 @@ formulario.addEventListener('submit', function(e)
     })
     .catch(console.log);
 
-    //modalSuccess.show();
+    modalSuccess.show();
 });
 
 function completeInsert(){

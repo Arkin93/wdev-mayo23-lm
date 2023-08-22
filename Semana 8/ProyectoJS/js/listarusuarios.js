@@ -28,7 +28,7 @@ function ajustardatostabla(datos){
     for (const objetoindividual of datos) {
 
         tablaresultado.innerHTML += `
-        <tr class="table-primary" >
+        <tr class="table-dark" >
                         <td scope="row">${objetoindividual.id}</td>
                         <td>${objetoindividual.name}</td>
                         <td>${objetoindividual.password}</td>
@@ -75,8 +75,7 @@ function completeDelete(){
     consultardatos();
 }
 
-function mostrarEditarModal(id, name, password, email){
-    document.getElementById('id').value = id;
+function mostrarEditarModal(name, password, email){
     document.getElementById('name').value = name;
     document.getElementById('password').value = password;
     document.getElementById('email').value = email;
@@ -89,7 +88,6 @@ formulario.addEventListener('submit', function(e)
     e.preventDefault();
 
     var datosEnviar = {
-        "id":document.getElementById('id').value,
         "nombre":document.getElementById('name').value,
         "password":document.getElementById('password').value,
         "email":document.getElementById('email').value,

@@ -34,7 +34,7 @@ function ajustardatostabla(datos){
         //console.log("///////////");
 
         tablaresultado.innerHTML += `
-        <tr class="table-primary" >
+        <tr class="table-dark" >
                         <td scope="row">${objetoindividual.id}</td>
                         <td>${objetoindividual.nombre}</td>
                         <td>${objetoindividual.descripcion}</td>
