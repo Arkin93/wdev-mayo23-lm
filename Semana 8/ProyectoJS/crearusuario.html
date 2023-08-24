@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="bg-dark">
@@ -18,26 +19,21 @@
     </div>
   </header>
   <main>
-    <div class="container">
+    <div class="container-fluid">
       <div class="container-lg bg-secondary bg-opacity-25 border border-warning border-3 rounded-4 text-light shadow-lg p-3 mb-5 bg-body-tertiary rounded mt-4 p-5">
-        <div id="formulario">
+        <form id="formulario">
          <div class="mb-3">
            <label for="" class="form-label">Nombre</label>
-           <input required type="text"
-             class="form-control bg-secondary bg-opacity-25 text-light" name="name" id="name" aria-describedby="helpId" placeholder="Ingresa el nombre">
+           <input required type="text" name="name" id="name" class="form-control bg-secondary bg-opacity-25 text-light" aria-describedby="helpId" placeholder="Ingresa el nombre">
          </div>
-
          <div class="mb-3">
-           <label for="" class="form-label">Contraseña</label>
-           <input required type="text"
-             class="form-control bg-secondary bg-opacity-25 text-light" name="password" id="password" aria-describedby="helpId" placeholder="Ingresa una contraseña">
-         </div>
-
-         <div class="mb-3">
-           <label for="" class="form-label">Correo Electronico</label>
-           <input required type="text"
-             class="form-control bg-secondary bg-opacity-25 text-light" name="email" id="email" aria-describedby="helpId" placeholder="Ingresa el correo electronico">
-         </div>
+          <label for="" class="form-label">Contraseña</label>
+          <input required type="text" name="password" id="password" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Correo electronico</label>
+          <input required type="email" name="email" id="email" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+        </div>
         <center>
          <button type="reset" class="btn btn-danger">Reset</button>
          ||
@@ -61,7 +57,7 @@
        </div>
     </div>
   </main>
-  <footer class="py my border-top fixed-bottom">
+  <footer class="py my border-top">
     <p class="text-center text-light p-3">© 2023 Arkin</p>
   </footer>
   <script src="js/menu.js"></script>

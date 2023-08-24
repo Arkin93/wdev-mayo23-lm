@@ -1,6 +1,7 @@
 menuprincipal.innerHTML += `
 <nav class="navbar navbar-expand-xxl navbar-dark bg-dark">
-<a class="navbar-brand" href="#">Proyecto Cursos</a>
+<img class="ms-5" style="width: 25px; height: 25px" src="img/java.png" alt="javascript">
+<a class="navbar-brand ms-2" href="#">Proyecto JavaScript</a>
 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
     aria-expanded="false" aria-label="Toggle navigation"></button>
 <div class="collapse navbar-collapse" id="collapsibleNavId">
