@@ -1,11 +1,10 @@
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
-var apiconsultar = "ListaCurso.php";
-var apieliminar = "BorrarCursos.php";
-var apieditar = "ActualizarCursos.php";
+var apiconsultar = "ListaUsuarios.php";
+var apieliminar = "BorrarUsuarios.php";
+var apieditar = "ActualizarUsuarios.php";
 
 const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"))
-//const modalSuccess = new bootstrap.Modal(document.getElementById('modalSuccess'))
 
 let tablaresultado = document.querySelector('#tablaresultado')
 
@@ -31,11 +30,10 @@ function ajustardatostabla(datos){
         <tr class="table-dark" >
                         <td scope="row">${objetoindividual.id}</td>
                         <td>${objetoindividual.name}</td>
-                        <td>${objetoindividual.password}</td>
                         <td>${objetoindividual.email}</td>
-                        <td>${objetoindividual.usuario}</td>
+                        <td>${objetoindividual.password}</td>
                         <td>
-                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.name}','${objetoindividual.password}','${objetoindividual.email}')">Editar</a>
+                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.name}','${objetoindividual.email}','${objetoindividual.password}')">Editar</a>
                         ||
                         <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
                         </td>
@@ -55,7 +53,8 @@ function eliminandodato(id){
     var datosEnviar = {
         "id":id
     }
-    apiurl = apibase + apieliminar;
+    console.log(datosEnviar);
+    apiurl = apibase + apieditar;
     fetch(apiurl,
         {
             method: 'POST',
@@ -63,7 +62,7 @@ function eliminandodato(id){
         })
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
-            completeDelete()
+            completeInsert()
     })
     .catch(console.log);
 
@@ -75,10 +74,11 @@ function completeDelete(){
     consultardatos();
 }
 
-function mostrarEditarModal(name, password, email){
+function mostrarEditarModal(id, name, email, password){
+    document.getElementById('id').value = id;
     document.getElementById('name').value = name;
-    document.getElementById('password').value = password;
     document.getElementById('email').value = email;
+    document.getElementById('password').value = password;
     myModalEditar.show();
 
 }
@@ -88,12 +88,12 @@ formulario.addEventListener('submit', function(e)
     e.preventDefault();
 
     var datosEnviar = {
+        "id":document.getElementById('id').value,
         "name":document.getElementById('name').value,
         "password":document.getElementById('password').value,
-        "email":document.getElementById('email').value,
-        "usuario":"Arkin"
     }
 
+    console.log(datosEnviar);
     apiurl = apibase + apieditar;
     fetch(apiurl,
         {
@@ -102,11 +102,9 @@ formulario.addEventListener('submit', function(e)
         })
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
-            // modalSuccess.show()
-            completeInsert()
+        completeInsert()
     })
     .catch(console.log);
-
 });
 
 function completeInsert(){

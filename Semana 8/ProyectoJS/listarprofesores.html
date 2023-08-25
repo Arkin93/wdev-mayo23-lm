@@ -56,7 +56,7 @@
 
     <div class="modal fade" id="myModalEliminar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">Eliminando registro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -70,13 +70,17 @@
 
     <div class="modal fade" id="myModalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">Editar registro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pb-5">
                     <form id="formulario">
+                      <div class="mb-3">
+                        <label for="" class="form-label">ID</label>
+                        <input disabled type="text" name="id" id="id" class="form-control" placeholder="" aria-describedby="helpId">
+                      </div>
                         <div class="mb-3">
                           <label for="" class="form-label">Cedula</label>
                           <input required type="text" name="cedula" id="cedula" class="form-control" placeholder="Inserte el numero de cedula" aria-describedby="helpId">
@@ -130,9 +134,7 @@
                             <label for="" class="form-label">ID Carrera</label>
                             <input required type="text" name="idCarreras" id="idCarreras" class="form-control" placeholder="Inserte la nacionalidad" aria-describedby="helpId">
                           </div>
-                          <button type="reset" class="btn btn-danger">Reset</button>
-                            ||
-                            <button type="submit" class="btn btn-success">Enviar</button>
+                          <button type="submit" class="btn btn-light position-absolute bottom-1 end-0 me-2">Enviar</button>
                         </form>
                 </div>
             </div>

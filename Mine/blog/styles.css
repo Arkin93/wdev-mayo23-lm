@@ -1,0 +1,12 @@
+/* Estilos específicos para el portafolio */
+.project {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project img {
+    max-width: 100%;
+}
+
+/* Resto de los estilos se mantienen iguales */

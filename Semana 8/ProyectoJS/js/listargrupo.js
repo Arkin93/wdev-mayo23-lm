@@ -97,7 +97,6 @@ formulario.addEventListener('submit', function(e)
         })
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
-            // modalSuccess.show()
             completeInsert()
     })
     .catch(console.log);

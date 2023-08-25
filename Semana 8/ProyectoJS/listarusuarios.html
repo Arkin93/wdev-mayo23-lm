@@ -30,9 +30,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Contraseña</th>
                     <th>Correo electronico</th>
-                    <th>Usuarios</th>
+                    <th>Contraseña</th>
                     <th>Acciones</th>
                 </tr>
                 </thead>
@@ -48,7 +47,7 @@
 
 <div class="modal fade" id="myModalEliminar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
+      <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
           <div class="modal-header">
               <h5 class="modal-title" id="modalTitleId">Eliminando registro</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -62,34 +61,33 @@
 
 <div class="modal fade" id="myModalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
+      <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
           <div class="modal-header">
               <h5 class="modal-title" id="modalTitleId">Editando registro</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body pb-5">
             <form id="formulario">
-                <div class="mb-3">
-                  <label for="" class="form-label">Nombre</label>
-                  <input required type="text"
-                    class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Ingresa el nombre">
+              <div class="mb-3">
+                <label for="" class="form-label">ID</label>
+                <input disabled type="text" name="id" id="id" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input required type="text" name="name" id="name" class="form-control" aria-describedby="helpId" placeholder="Ingresa el nombre">
+              </div>
+              <div class="mb-3">
+                  <label for="" class="form-label">Correo electronico</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
                 </div>
-       
-                <div class="mb-3">
-                  <label for="" class="form-label">Contraseña</label>
-                  <input required type="text"
-                    class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Ingresa una contraseña">
-                </div>
-       
-                <div class="mb-3">
-                  <label for="" class="form-label">Correo Electronico</label>
-                  <input required type="text"
-                    class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Ingresa el correo electronico">
-                </div>
-                <button type="reset" class="btn btn-danger">Reset</button>
-                ||
-                <button type="submit" class="btn btn-success">Enviar</button>
-               </form>
+               <div class="mb-3">
+                <label for="" class="form-label">Contraseña</label>
+                <input required type="text" name="password" id="password" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+              </div>
+              <center>
+                <button type="submit" class="btn btn-light position-absolute bottom-1 end-0 me-2">Enviar</button>
+              </center>
+              </form>
           </div>
       </div>
   </div>

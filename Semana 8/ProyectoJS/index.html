@@ -21,73 +21,42 @@
   </header>
   <main>
     <div class="container-fluid">
-      <div class="container text-center pt-5">
-      <div class="row align-items-start">
-        <div class="col">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded bg-warning" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title fs-1 p-3 bg-secondary bg-opacity-50 border border-2 border-light border-start rounded-pill">Cursos</h5>
-              <p class="card-text">Añadir, editar y/o eliminar informacion de los cursos.</p>
-              <div class="btn-group">
-                <a href="crearcurso.html" class="btn btn-secondary">Crear</a>
-                <a href="listarcurso.html" class="btn btn-secondary">Lista</a>
+      <div class="container pt-5">
+        <div class="row align-items-start">
+          <div class="col-6 text-center p-3 mb-2">
+            <h3 class="pt-5 mb-3 w-50 p-3 text-light">Iniciar sesion</h3>
+            <form>
+              <div class="mb-3 w-50 p-3">
+                <label for="exampleInputEmail1" class="form-label text-light">Email address</label>
+                <input type="email" class="form-control bg-warning" name="email" id="email" aria-describedby="emailHelp">
               </div>
+              <div class="mb-3 w-50 p-3">
+                <label for="exampleInputPassword1" class="form-label text-light">Password</label>
+                <input type="password" class="form-control bg-warning" name="password" id="password">
+              </div>
+              <div class="mb-3 form-check pt-4 pb-3 w-50 p-3">
+                <p><a href="resetpassword.html" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Forgot password?</a></p>
+              </div>
+              <div class="w-50 p-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+            </form>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded bg-warning" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title fs-1 p-3 bg-secondary bg-opacity-50 border border-2 border-light border-start rounded-pill">Grupos</h5>
-              <p class="card-text">Añadir, editar y/o eliminar informacion de los grupos.</p>
-              <div class="btn-group">
-              <a href="creargrupo.html" class="btn btn-secondary">Crear</a>
-              <a href="listargrupo.html" class="btn btn-secondary">Lista</a>
-            </div>
-            </div>
+          <div class="col-sm-6 text-light">
+            <h1>Proyecto JavaScript</h1>
+            <img src="img/java2.png" width="100px" height="100px" alt="JavaScript" class="mt-3 mb-3">
+            <p>
+              Como parte de su formación en el área de TI es vital el estudio y constante repaso de lo aprendido. Es por esto, que la presente tarea pretende reforzar estos conocimientos; con base a la teoría y ejemplos realizados en clase, construya un micro-sitio que sea de su tema de preferencia(Estilos y colores), y el sitio web debe utilizar un framework ( este caso deben usar Bootstrap) que lo permita ser responsive(adaptativo a los diferentes anchos de pantalla). El sitio web, debe contener un home page(index.html), debe tener un menú de navegación(debe ser en un html aparte, para que permita el mantenimiento del menu), se puede integrar con javascript. Además debe contener una plantilla adaptativa (Header,Menu, Container, Footer)
+              El sistema que se elaborara es el siguiente, basado en el API https://paginas-web-cr.com/ApiPHP/, y utilizando javascript sin framework, se requiere crear los siguientes módulos.
+              <br/><br/>
+              Estudiante, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+              Profesor, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+              Grupo, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+              Curso, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+            </p>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded bg-warning" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title fs-1 p-3 bg-secondary bg-opacity-50 border border-2 border-light border-start rounded-pill">Usuarios</h5>
-              <p class="card-text">Añadir, editar y/o eliminar informacion de los usuarios.</p>
-              <div class="btn-group">
-              <a href="crearusuario.html" class="btn btn-secondary">Crear</a>
-              <a href="listarusuarios.html" class="btn btn-secondary">Lista</a>
-            </div>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <div class="row justify-content-center pt-5">
-        <div class="col-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded bg-warning" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title fs-2 p-3 bg-secondary bg-opacity-50 border border-2 border-light border-start rounded-pill">Estudiantes</h5>
-              <p class="card-text">Añadir, editar y/o eliminar informacion de los estudiantes.</p>
-              <div class="btn-group">
-              <a href="añadirestudiante.html" class="btn btn-secondary">Crear</a>
-              <a href="listarestudiantes.html" class="btn btn-secondary">Lista</a>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded bg-warning" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title fs-2 p-3 bg-secondary bg-opacity-50 border border-2 border-light border-start rounded-pill">Profesores</h5>
-              <p class="card-text">Añadir, editar y/o eliminar informacion de los profesores.</p>
-              <div class="btn-group">
-              <a href="añadirprofesor.html" class="btn btn-secondary">Crear</a>
-              <a href="listarprofesores.html" class="btn btn-secondary">Lista</a>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      
     </div>
   </main>
   <footer class="py my border-top">

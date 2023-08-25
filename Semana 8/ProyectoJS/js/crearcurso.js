@@ -26,10 +26,8 @@ formulario.addEventListener('submit', function(e)
             completeInsert()
     })
     .catch(console.log);
-
-    //modalSuccess.show();
 });
 
 function completeInsert(){
-    window.location = 'listargrupo.html';
+    window.location = 'listarcurso.html';
 }

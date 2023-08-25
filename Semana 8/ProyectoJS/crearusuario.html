@@ -22,17 +22,21 @@
     <div class="container-fluid">
       <div class="container-lg bg-secondary bg-opacity-25 border border-warning border-3 rounded-4 text-light shadow-lg p-3 mb-5 bg-body-tertiary rounded mt-4 p-5">
         <form id="formulario">
-         <div class="mb-3">
-           <label for="" class="form-label">Nombre</label>
-           <input required type="text" name="name" id="name" class="form-control bg-secondary bg-opacity-25 text-light" aria-describedby="helpId" placeholder="Ingresa el nombre">
-         </div>
+          <div class="mb-3">
+            <label for="" class="form-label">ID</label>
+            <input disabled type="text" name="id" id="id" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="" aria-describedby="helpId">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Nombre</label>
+            <input required type="text" name="name" id="name" class="form-control bg-secondary bg-opacity-25 text-light" aria-describedby="helpId" placeholder="Ingresa el nombre">
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Correo electronico</label>
+            <input required type="email" name="email" id="email" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+          </div>
          <div class="mb-3">
           <label for="" class="form-label">Contraseña</label>
           <input required type="text" name="password" id="password" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el correo electronico" aria-describedby="helpId">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Correo electronico</label>
-          <input required type="email" name="email" id="email" class="form-control bg-secondary bg-opacity-25 text-light" placeholder="Inserte el correo electronico" aria-describedby="helpId">
         </div>
         <center>
          <button type="reset" class="btn btn-danger">Reset</button>
@@ -44,7 +48,7 @@
 
       <div class="modal fade" id="modalSuccess" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-          <div class="modal-content">
+          <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
             <div class="modal-header">
               <h5 class="modal-title" id="modalTitleId">Creando Usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

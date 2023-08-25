@@ -5,7 +5,6 @@ var apieditar = "ActualizarCursos.php";
 
 const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"))
-//const modalSuccess = new bootstrap.Modal(document.getElementById('modalSuccess'))
 
 let tablaresultado = document.querySelector('#tablaresultado')
 
@@ -26,12 +25,6 @@ function consultardatos(){
 function ajustardatostabla(datos){
     console.log("datos"+datos);
     for (const objetoindividual of datos) {
-        //console.log(objetoindividual.id);
-        //console.log(objetoindividual.nombre);
-        //console.log(objetoindividual.descripcion);
-        //console.log(objetoindividual.tiempo);
-        //console.log(objetoindividual.usuario);
-        //console.log("///////////");
 
         tablaresultado.innerHTML += `
         <tr class="table-dark" >
@@ -51,7 +44,6 @@ function ajustardatostabla(datos){
         }
     }
 
-//{"id":"3086","nombre":"Api Jul 19","descripcion":"Expres","tiempo":"85","usuario":"Kevin M. VLA"}
 
 function mostrarModal(id){
     eliminandodato(id);
@@ -112,7 +104,6 @@ formulario.addEventListener('submit', function(e)
         })
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
-            // modalSuccess.show()
             completeInsert()
     })
     .catch(console.log);

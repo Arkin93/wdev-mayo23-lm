@@ -131,7 +131,6 @@ function ajustardatostabla(datos){
             })
         .then(estructura => estructura.json())
         .then((datosrespuesta) => {
-                // modalSuccess.show()
                 completeInsert()
         })
         .catch(console.log);

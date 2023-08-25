@@ -8,10 +8,10 @@ formulario.addEventListener('submit', function(e)
     e.preventDefault();
 
     var datosEnviar = {
+        "id":document.getElementById('id').value,
         "name":document.getElementById('name').value,
-        "password":document.getElementById('password').value,
         "email":document.getElementById('email').value,
-        "usuario":"Arkin"
+        "password":document.getElementById('password').value,
     }
 
     console.log(datosEnviar);
@@ -27,8 +27,6 @@ formulario.addEventListener('submit', function(e)
             completeInsert()
     })
     .catch(console.log);
-
-    modalSuccess.show();
 });
 
 function completeInsert(){
