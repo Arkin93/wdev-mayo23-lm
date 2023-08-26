@@ -8,7 +8,6 @@ formulario.addEventListener('submit', function(e)
     e.preventDefault();
 
     var datosEnviar = {
-        "id":document.getElementById('id').value,
         "name":document.getElementById('name').value,
         "email":document.getElementById('email').value,
         "password":document.getElementById('password').value,
