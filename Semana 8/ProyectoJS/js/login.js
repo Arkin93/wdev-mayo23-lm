@@ -21,7 +21,7 @@ formulario.addEventListener('submit', function(e)
         })
     .then(estructura => estructura.json())
     .then((datosrespuesta) => {
-            modalSuccess.show()
+            // modalSuccess.show()
             completeInsert()
     })
     .catch(console.log);

@@ -1,9 +1,7 @@
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var apiconsultar = "ListaUsuarios.php";
-var apieliminar = "BorrarUsuarios.php";
 var apieditar = "ActualizarUsuarios.php";
 
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"))
 
 let tablaresultado = document.querySelector('#tablaresultado')
@@ -34,8 +32,7 @@ function ajustardatostabla(datos){
                         <td>${objetoindividual.password}</td>
                         <td>
                         <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.name}','${objetoindividual.email}','${objetoindividual.password}')">Editar</a>
-                        ||
-                        <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
+                        
                         </td>
                     </tr>
         `
@@ -43,36 +40,6 @@ function ajustardatostabla(datos){
         }
     }
 
-function mostrarModal(id){
-    eliminandodato(id);
-    myModalEliminar.show();
-}
-
-function eliminandodato(id){
-    
-    var datosEnviar = {
-        "id":id
-    }
-    console.log(datosEnviar);
-    apiurl = apibase + apieditar;
-    fetch(apiurl,
-        {
-            method: 'POST',
-            body: JSON.stringify(datosEnviar)
-        })
-    .then(estructura => estructura.json())
-    .then((datosrespuesta) => {
-            completeInsert()
-    })
-    .catch(console.log);
-
-}
-
-function completeDelete(){
-    myModalEliminar.hide();
-    tablaresultado.innerHTML = ``;
-    consultardatos();
-}
 
 function mostrarEditarModal(id, name, email, password){
     document.getElementById('id').value = id;

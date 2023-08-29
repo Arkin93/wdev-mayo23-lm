@@ -48,5 +48,8 @@ menuprincipal.innerHTML += `
             </div>
         </li>
     </ul>
+    <div class="me-5">
+    <a href="login.html" class="btn btn-outline-warning me-2">Login</a>
+    </div>
 </div>
 </nav>`;

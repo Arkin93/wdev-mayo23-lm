@@ -25,7 +25,7 @@
         <div class="row align-items-center">
           <div class="col text-center">
             <h3 class="text-light">Iniciar sesion</h3>
-            <form>
+            <form id="formulario">
               <div class="mt-5">
                 <label for="exampleInputEmail1" class="form-label text-light">Email address</label>
                 <input type="email" class="form-control bg-warning" name="email" id="email" aria-describedby="emailHelp">
@@ -43,6 +43,20 @@
             </form>
           </div>
       </div>
+
+      <div class="modal fade" id="modalSuccess" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+          <div class="modal-content bg-secondary border border-warning border-3 rounded-4 text-light">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitleId">Iniciando sesion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Sesion iniciada
+            </div>
+          </div>
+        </div>
+       </div>
       
     </div>
   </main>
