@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Calculadora 2.0</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,51 +17,127 @@
     $(document).ready(function () {
         // alert("Bienvenidos");
 
-        $("#boton").click(function (e) { 
+              $("#boton").click(function (e) { 
         // e.preventDefault();
         mostrarMensaje();
 
         // alert("Hola");
         });
 
+        $("#Sumar").click(function (e) { 
+          dato1 = $("#dato1").val();
+          dato2 = $("#dato2").val();
+          Sumar (dato1, dato2);
+        });
+
+        $("#Restar").click(function (e) { 
+          dato1 = $("#dato1").val();
+          dato2 = $("#dato2").val();
+          Restar (dato1, dato2);
+        });
+
+        $("#Multiplicar").click(function (e) { 
+          dato1 = $("#dato1").val();
+          dato2 = $("#dato2").val();
+          Multiplicar (dato1, dato2);
+        });
+
+        $("#Dividir").click(function (e) { 
+          dato1 = $("#dato1").val();
+          dato2 = $("#dato2").val();
+          Dividir (dato1, dato2);
+        });
+
+        $("#ocultar").click(function (e) { 
+      e.preventDefault();
+      $("#container1").hide();
     });
+
+        $("#mostrar").click(function (e) { 
+      e.preventDefault();
+      $("#container1").show();
+    });
+
+
+    });
+
 
     function mostrarMensaje(){
         alert("Hola");
     }
 
+    function Sumar (dato1, dato2) {
+      resultado = parseInt(dato1) + parseInt(dato2);
+      $("#resultado").val(resultado);
+      }
+
+      function Restar (dato1, dato2) {
+      resultado = dato1 - dato2;
+      $("#resultado").val(resultado);
+      }
+
+      function Multiplicar (dato1, dato2) {
+      resultado = dato1 * dato2;
+      $("#resultado").val(resultado);
+      }
+
+      function Dividir (dato1, dato2) {
+      resultado = dato1 / dato2;
+      $("#resultado").val(resultado);
+      }
+  
 
     </script>
 
 </head>
 
-<body>
+<body class="bg-info">
   <header>
     <!-- place navbar here -->
   </header>
   <main>
-
-    <div class="container">
+    <div class="container bg-primary border-start border-end border-white border-5 position-absolute top-50 start-50 translate-middle h-100">
+    <div class="container bg-warning p-5">
+    <h1 class="text-center">Calculadora</h1>
+  </div>
+  <center>
+  <a name="ocultar" id="ocultar" class="btn btn-danger" href="#" role="button">Ocultar</a>
+  <a name="mostrar" id="mostrar" class="btn btn-danger" href="#" role="button">Mostrar</a>
+</center>
+  <div id="container1">
+  <div style="height: 150px;"></div>
+    <div class="container w-25 p-3">
         <div class="mb-3">
-          <label for="" class="form-label">Dato1</label>
+          <label for="" class="form-label text-light">Inserta numeros</label>
           <input type="number"
-            class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            class="form-control" name="dato1" id="dato1" aria-describedby="helpId" placeholder="">
         </div>
 
         <div class="mb-3">
-            <label for="" class="form-label">Dato2</label>
+            <label for="" class="form-label text-light">Inserta numeros</label>
             <input type="number"
-              class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              class="form-control" name="dato2" id="dato2" aria-describedby="helpId" placeholder="">
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label text-light">Resultado</label>
+            <input type="number"
+              class="form-control" name="resultado" id="resultado" aria-describedby="helpId" placeholder="">
           </div>
     </div>
+  </div>
 
-    <div class="container">
-        <a name="Sumar" id="Sumar" class="btn btn-primary" href="#" role="button">Sumar</a>
-        <a name="Restar" id="Restar" class="btn btn-primary" href="#" role="button">Restar</a>
-        <a name="Multiplicar" id="Multiplicar" class="btn btn-primary" href="#" role="button">Multiplicar</a>
-        <a name="Dividir" id="Dividir" class="btn btn-primary" href="#" role="button">Dividir</a>
+    <center>
+    <div class="container btn-group w-50 p-5 mt-5 mb-5" role="group" aria-label="Basic example">
+        <a name="Sumar" id="Sumar" class="btn btn-warning" href="#" role="button">Sumar</a>
+        <a name="Restar" id="Restar" class="btn btn-warning" href="#" role="button">Restar</a>
+        <a name="Multiplicar" id="Multiplicar" class="btn btn-warning" href="#" role="button">Multiplicar</a>
+        <a name="Dividir" id="Dividir" class="btn btn-warning" href="#" role="button">Dividir</a>
+      </center>
     </div>
-
+    
+    
+  </div>
 
   </main>
   <footer>
