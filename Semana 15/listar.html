@@ -38,7 +38,48 @@
         function ajustardatostabla(datos){
     console.log("datos"+datos);
     for (const objetoindividual of datos) {
+      tablaresultado.innerHTML += `
+            <tr class="table-dark" >
+                            <td scope="row">${objetoindividual.id}</td>
+                            <td>${objetoindividual.nombre}</td>
+                            <td>${objetoindividual.descripcion}</td>
+                            <td>${objetoindividual.tiempo}</td>
+                            <td>${objetoindividual.usuario}</td>
+                            <td>
+                            <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.nombre}','${objetoindividual.descripcion}','${objetoindividual.tiempo}')">Editar</a>
+                            ||
+                            <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarModal('${objetoindividual.id}')">Eliminar</a>
+                            </td>
+                        </tr>
+            `
     }}
+
+        function crearCurso() {
+// 1. obtener los valores del input por medio de funciones de jquery (set/get), ya no se usa el documentgetelementbyid
+// 2. crear un objeto donde se puedan agregar los valores
+
+// objeto = {
+//   nombre,
+//   descripcion
+// }
+
+            $.ajax({
+              type: "method",
+              url: "url",
+              data: objeto,
+              dataType: "dataType",
+              success: function (response) {
+                
+              }
+            });
+
+        }
+
+
+
+$(selector).val();
+$(selector).val(value);
+
 
     </script>
 </head>
