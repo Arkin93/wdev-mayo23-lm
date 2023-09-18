@@ -36,7 +36,7 @@ $.ajax({
         for (const objetoindividual of datos) {
             // console.log(objetoindividual);
             tablaresultado.innerHTML += `
-            <tr class="table-success" >
+            <tr class="table-light" >
                             <td scope="row">${objetoindividual.id}</td>
                             <td>${objetoindividual.nombre}</td>
                             <td>${objetoindividual.descripcion}</td>
@@ -126,7 +126,7 @@ console.log(datosEditar.data);
             success: function (response) {
                 console.log(response);
                 // modalSuccess.show()
-                completeInsert();
+                // completeInsert();
             },
             error: function(xhr, textstatus, errorthrown){
                 console.log("Error ", errorthrown);
@@ -142,7 +142,7 @@ console.log(datosEditar.data);
 
 $("#Eliminar").click(function (e) { 
     e.preventDefault();
-    mostrarEliminarModal();
+    mostrarEliminarModal(id);
 });
     
 $("#Borrar").click(function (e) { 
@@ -184,10 +184,10 @@ $("#Borrar").click(function (e) {
     }
 
 
-        function mostrarModal(id){
-            eliminandodato(id);
-            // myModalEliminar.show();
-        }
+        // function mostrarModal(id){
+        //     eliminandodato(id);
+        //     // myModalEliminar.show();
+        // }
 
 function completeInsert(){
     window.location = 'cursos.html';

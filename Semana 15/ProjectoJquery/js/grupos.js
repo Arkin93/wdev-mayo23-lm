@@ -1,5 +1,5 @@
 // var formulario = document.getElementById('formulario');
-const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
+// const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
 const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"))
 const myModalCrear = new bootstrap.Modal(document.getElementById('myModalCrear'))
@@ -35,7 +35,7 @@ function ajustarDatosTabla(datos){
     console.log("datos"+datos);
     for (const objetoindividual of datos) {
         tablaresultado.innerHTML += `
-        <tr class="table-success" >
+        <tr class="table-light" >
                         <td scope="row">${objetoindividual.id}</td>
                         <td>${objetoindividual.nombre}</td>
                         <td>

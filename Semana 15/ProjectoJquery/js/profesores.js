@@ -4,10 +4,10 @@ const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalElim
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
 const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
-var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php";
-var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarEstudiantes.php";
-var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php";
-var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarEstudiantes.php";
+var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php";
+var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarProfesores.php";
+var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php";
+var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarProfesores.php";
 
 
 $(document).ready(function () {
@@ -220,5 +220,5 @@ eliminarDato(id);
    
 
 function completeInsert(){
-    window.location = 'estudiantes.html';
+    window.location = 'profesores.html';
 }
