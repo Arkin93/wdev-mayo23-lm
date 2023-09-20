@@ -35,4 +35,5 @@ menuprincipal.innerHTML += `
   </li>
 </ul>
   </div>
-</div></div></nav>`;
+</div></div></nav>
+`;

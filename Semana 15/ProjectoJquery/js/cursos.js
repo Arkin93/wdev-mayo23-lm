@@ -96,10 +96,10 @@ $.ajax({
 
 
         function mostrarEditarModal (id, nombre, descripcion, tiempo){
-            $("#id").val(id);
-            $("#nombre").val(nombre);
-            $("#descripcion").val(descripcion);
-            $("#tiempo").val(tiempo);
+            $(id).val("#id");
+            $(nombre).val("#nombre");
+            $(descripcion).val("#descripcion");
+            $(tiempo).val("#tiempo");
             myModalEditar.show();
         }
 
