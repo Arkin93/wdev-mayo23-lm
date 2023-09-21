@@ -96,10 +96,10 @@ $.ajax({
 
 
         function mostrarEditarModal (id, nombre, descripcion, tiempo){
-            $(id).val("#id");
-            $(nombre).val("#nombre");
-            $(descripcion).val("#descripcion");
-            $(tiempo).val("#tiempo");
+            $("#id").val(id);
+            $("#nombre").val(nombre);
+            $("#descripcion").val(descripcion);
+            $("#tiempo").val(tiempo);
             myModalEditar.show();
         }
 
@@ -152,7 +152,7 @@ $("#Borrar").click(function (e) {
 
         function eliminarDato(id){
             var datosEliminar = {
-                "id":id
+                id: $("#id").val(id),
             }
         
             // console.log(datosEliminar);

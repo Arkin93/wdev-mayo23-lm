@@ -67,7 +67,6 @@ function ajustarDatosTabla(datos){
             function crearDatos(){
                     var datosEnviar = {
                         nombre: $("#nombre").val(),
-                        usuario: "Arkin",
                     }
                     console.log(datosEnviar);
                     
@@ -103,13 +102,9 @@ function ajustarDatosTabla(datos){
 
         $("#Actualizar").click(function (e) { 
             e.preventDefault();
-            actualizarDatos();
-        });
-
-    function actualizarDatos(){
             var datosEditar = {
-                id: $("#id").val(id),
-                nombre: $("#nombre").val(nombre),
+                id: $("#id").val(),
+                nombre: $("#nombre").val(),
             }
             
         $.ajax({
@@ -126,7 +121,7 @@ function ajustarDatosTabla(datos){
                 console.log("Error ", errorthrown);
         }
     });
-    }
+    });
 
 
     function mostrarEliminarModal(){

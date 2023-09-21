@@ -13,7 +13,7 @@ menuprincipal.innerHTML += `
   <div class="offcanvas-body">
   <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link" aria-current="page" href="#">Inicio</a>
+    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="estudiantes.html">Estudiantes</a>
@@ -31,7 +31,7 @@ menuprincipal.innerHTML += `
     <a class="nav-link" href="usuarios.html">Usuarios</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="https://paginas-web-cr.com/ApiPHP/">API</a>
+    <a class="nav-link" target="_blank" href="https://paginas-web-cr.com/ApiPHP/">API</a>
   </li>
 </ul>
   </div>
