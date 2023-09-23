@@ -1,17 +1,18 @@
 // var formulario = document.getElementById('formulario');
 // const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
-const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
-const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php";
 
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
+const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
+const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
+
+let tablaresultado = document.querySelector('#tablaresultado');
 
 $(document).ready(function () {
-    let tablaresultado = document.querySelector('#tablaresultado');
     cargarDatos();
 });
 
@@ -21,8 +22,8 @@ $.ajax({
     url: listar,
     dataType: "json",
     success: function (response) {
-        console.log(response.data);
         ajustarDatosTabla(response.data);
+        console.log(response);
     },
 
     error: function(xhr, textstatus, errorthrown){
@@ -48,7 +49,7 @@ $.ajax({
                             <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarEliminarModal('${objetoindividual.id}')">Eliminar</a>
                             </td>
                         </tr>
-            `
+            `;
     
             }
         }
@@ -71,10 +72,10 @@ $.ajax({
 
         function crearDatos(){
                 var datosEnviar = {
-                        nombre: $("#nombre").val(),
-                        descripcion: $("#descripcion").val(),
-                        tiempo: $("#tiempo").val(),
-                        usuario: "Arkin",
+                        "nombre": $("#nombre").val(),
+                        "descripcion": $("#descripcion").val(),
+                        "tiempo": $("#tiempo").val(),
+                        "usuario": "Arkin",
                     }
                     
                 $.ajax({
@@ -103,27 +104,22 @@ $.ajax({
             myModalEditar.show();
         }
 
-        $("#Editar").click(function (e) { 
-            e.preventDefault();
-            mostrarEditarModal();
-        });
-
         $("#Actualizar").click(function (e) { 
             e.preventDefault();
             var datosEditar = {
-                id: $("#id").val(),
-                nombre: $("#nombre").val(),
-                descripcion: $("#descripcion").val(),
-                tiempo: $("#tiempo").val(),
-                usuario: "Arkin",
+                "id": $("#id").val(),
+                "nombre": $("#nombre").val(),
+                "descripcion": $("#descripcion").val(),
+                "tiempo": $("#tiempo").val(),
+                "usuario": "Arkin"
             }
-console.log(datosEditar.data);
         $.ajax({
             type: "POST",
             url: editar,
             data: JSON.stringify(datosEditar),
             dataType: "json",
             success: function (response) {
+                completeEdit();
                 console.log(response);
                 // modalSuccess.show()
                 // completeInsert();
@@ -133,47 +129,35 @@ console.log(datosEditar.data);
         }
     });
 });
+
+function completeEdit() {
+    myModalEditar.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}
     
 
         function mostrarEliminarModal(){
             myModalEliminar.show();
         }
 
-
-$("#Eliminar").click(function (e) { 
-    e.preventDefault();
-    mostrarEliminarModal(id);
-});
     
-$("#Borrar").click(function (e) { 
-    e.preventDefault();
+$("#Borrar").click(function (id) { 
     eliminarDato(id);
 });
 
         function eliminarDato(id){
             var datosEliminar = {
-                id: $("#id").val(id),
+                "id": id
             }
-        
-            // console.log(datosEliminar);
-            // apiurl = apibase + apieliminar;
-            // fetch(apiurl,
-            //     {
-            //         method: 'POST',
-            //         body: JSON.stringify(datosEnviar)
-            //     })
-            // .then(estructura => estructura.json())
-            // .then((datosrespuesta) => {
-            //         completeDelete()
-            // })
-            // .catch(console.log);
-        
+
             $.ajax({
                 type: "POST",
                 url: eliminar,
                 data: JSON.stringify(datosEliminar),
                 dataType: "json",
                 success: function (response) {
+                    completeDelete();
                     console.log(response);
                     // modalSuccess.show()
                 },
@@ -184,10 +168,11 @@ $("#Borrar").click(function (e) {
     }
 
 
-        // function mostrarModal(id){
-        //     eliminandodato(id);
-        //     // myModalEliminar.show();
-        // }
+        function completeDelete(){
+            myModalEliminar.hide();
+            tablaresultado.innerHTML = ``;
+            cargarDatos();
+        }
 
 function completeInsert(){
     window.location = 'cursos.html';

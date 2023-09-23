@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Estudiante</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/estilos.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+       
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <div id="menuprincipal">
+            </div>
+        </header>
+        <main>
+            <div class="table-responsive">
+                <table class="table table-striped
+                table-hover	
+                table-borderless
+                table-dark
+                align-middle">
+                    <thead class="table">
+                       
+                        <caption>Tabla de estudiante</caption>
+                        <tr>
+                            <th>id</th>
+                            <th>cedula</th>
+                            <th>correoelectronico</th>
+                            <th>telefono</th>
+                            <th>telefonocelular</th>
+                            <th>fechanacimiento</th>
+                            <th>sexo</th>
+                            <th>direccion</th>
+                            <th>nombre</th>
+                            <th>apellidomaterno</th>
+                            <th>apellidomaterno</th>
+                            <th>nacionalidad</th>
+                            <th>idCarreras</th>
+                            <th>usuario</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tablaresultado">
+                    </tbody>
+                </table>
+            </div>
+            <div class="container">
+                <!-- Modal Body -->
+                <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                <div class="modal fade" id="myModalEliminar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+                role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Eliminar estudiante</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Estudiante eliminado
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="container">
+                <!-- Modal Body -->
+                <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                <div class="modal fade" id="myModalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+                    role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitleId">Editar estudiante</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formularioEstudiante">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Id</label>
+                                        <input required type="text" disabled class="form-control" name="id" id="id"
+                                            aria-describedby="helpId">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Cedula</label>
+                                        <input required type="number" class="form-control" name="cedula" id="cedula"
+                                            aria-describedby="helpId" placeholder="Ingresa cedula">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Correo</label>
+                                        <input required type="text" class="form-control" name="correoelectronico" id="correoelectronico"
+                                            aria-describedby="helpId" placeholder="Ingresa correo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Telefono</label>
+                                        <input required type="number" class="form-control" name="telefono" id="telefono"
+                                            aria-describedby="helpId" placeholder="Ingresa el telefono">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Celular</label>
+                                        <input required type="number" class="form-control" name="telefonocelular" id="telefonocelular"
+                                            aria-describedby="helpId" placeholder="Ingresa el numero celular">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nacimiento</label>
+                                        <input required type="date" class="form-control" name="fechanacimiento" id="fechanacimiento"
+                                            aria-describedby="helpId" placeholder="Ingresa fecha de nacimiento">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Sexo</label>
+                                        <select required class="form-select" name="sexo" id="sexo" aria-describedby="helpId">
+                                            <option value="" disabled selected>Selecciona el sexo</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Direccion</label>
+                                        <input required type="text" class="form-control" name="direccion" id="direccion"
+                                            aria-describedby="helpId" placeholder="Ingresa direccion">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nombre</label>
+                                        <input required type="text" class="form-control" name="nombre" id="nombre"
+                                            aria-describedby="helpId" placeholder="Ingresa nombre">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Primer Apellido</label>
+                                        <input required type="text" class="form-control" name="apellidopaterno" id="apellidopaterno"
+                                            aria-describedby="helpId" placeholder="Ingresa el primer apellido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Segundo Apellido</label>
+                                        <input required type="text" class="form-control" name="apellidomaterno" id="apellidomaterno"
+                                            aria-describedby="helpId" placeholder="Ingresa el segundo apellido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Nacionalidad</label>
+                                        <input required type="text" class="form-control" name="nacionalidad" id="nacionalidad"
+                                            aria-describedby="helpId" placeholder="Ingresa la nacionalidad">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Carreras</label>
+                                        <input required type="text" class="form-control" name="idCarreras" id="idCarreras"
+                                            aria-describedby="helpId" placeholder="Ingresa carreras">
+                                    </div>
+                                    <div class="botones">
+                                        <button id="btnEditar" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer >
+          </footer>
+    </div>
+    <script src="js/menu.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script src="js/listaestudiante.js"></script>
+</body>
+
+</html>

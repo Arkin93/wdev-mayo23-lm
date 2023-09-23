@@ -1,17 +1,16 @@
-// var formulario = document.getElementById('formulario');
-// const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
-const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
-const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarEstudiantes.php";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarEstudiantes.php";
 
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
+const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
+const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
+
+let tablaresultado = document.querySelector('#tablaresultado');
 
 $(document).ready(function () {
-    let tablaresultado = document.querySelector('#tablaresultado');
     cargarDatos();
 });
 
@@ -33,7 +32,6 @@ $.ajax({
 
 
 function ajustarDatosTabla(datos){
-    console.log("datos"+datos);
     for (const objetoindividual of datos) {
         tablaresultado.innerHTML += `
         <tr class="table-light" >
@@ -57,7 +55,7 @@ function ajustarDatosTabla(datos){
                         <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarEliminarModal('${objetoindividual.id}')">Eliminar</a>
                         </td>
                     </tr>
-        `
+        `;
     }}
 
 
@@ -128,36 +126,32 @@ function ajustarDatosTabla(datos){
         myModalEditar.show();
     }
 
-    $("#Editar").click(function (e) { 
-        e.preventDefault();
-        mostrarEditarModal();
-    });
-
     $("#Actualizar").click(function (e) { 
         e.preventDefault();
         var datosEditar = {
-            id: $("#id").val(),
-            cedula: $("#cedula").val(),
-            nombre: $("#nombre").val(),
-            apellidopaterno: $("#apellidopaterno").val(),
-            apellidomaterno: $("#apellidomaterno").val(),
-            nacionalidad: $("#nacionalidad").val(),
-            direccion: $("#direccion").val(),
-            correoelectronico: $("#correoelectronico").val(),
-            telefono: $("#telefono").val(),
-            telefonocelular: $("#telefonocelular").val(),
-            fechanacimiento: $("#fechanacimiento").val(),
-            sexo: $("#sexo").val(),
-            idCarreras: $("#idCarreras").val(),
-            usuario: "Arkin",
+            "id": $("#id").val(),
+            "cedula": $("#cedula").val(),
+            "nombre": $("#nombre").val(),
+            "apellidopaterno": $("#apellidopaterno").val(),
+            "apellidomaterno": $("#apellidomaterno").val(),
+            "nacionalidad": $("#nacionalidad").val(),
+            "direccion": $("#direccion").val(),
+            "correoelectronico": $("#correoelectronico").val(),
+            "telefono": $("#telefono").val(),
+            "telefonocelular": $("#telefonocelular").val(),
+            "fechanacimiento": $("#fechanacimiento").val(),
+            "sexo": $("#sexo").val(),
+            "idCarreras": $("#idCarreras").val(),
+            "usuario": "Arkin"
         }
-console.log(datosEditar.data);
+
     $.ajax({
         type: "POST",
         url: editar,
         data: JSON.stringify(datosEditar),
         dataType: "json",
         success: function (response) {
+            completeEdit();
             console.log(response);
             // modalSuccess.show()
             // completeInsert();
@@ -168,39 +162,21 @@ console.log(datosEditar.data);
 });
 });
 
+function completeEdit() {
+    myModalEditar.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}
 
-    function mostrarEliminarModal(){
+    function mostrarEliminarModal(id){
+        eliminarDato(id);
         myModalEliminar.show();
     }
-
-
-$("#Eliminar").click(function (e) { 
-e.preventDefault();
-mostrarEliminarModal(id);
-});
-
-$("#Borrar").click(function (e) { 
-e.preventDefault();
-eliminarDato(id);
-});
 
     function eliminarDato(id){
         var datosEliminar = {
             "id":id
         }
-    
-        // console.log(datosEliminar);
-        // apiurl = apibase + apieliminar;
-        // fetch(apiurl,
-        //     {
-        //         method: 'POST',
-        //         body: JSON.stringify(datosEnviar)
-        //     })
-        // .then(estructura => estructura.json())
-        // .then((datosrespuesta) => {
-        //         completeDelete()
-        // })
-        // .catch(console.log);
     
         $.ajax({
             type: "POST",
@@ -208,6 +184,7 @@ eliminarDato(id);
             data: JSON.stringify(datosEliminar),
             dataType: "json",
             success: function (response) {
+                completeDelete();
                 console.log(response);
                 // modalSuccess.show()
             },
@@ -217,7 +194,11 @@ eliminarDato(id);
     });
 }
 
-   
+function completeDelete() {
+    myModalEliminar.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}  
 
 function completeInsert(){
     window.location = 'estudiantes.html';
