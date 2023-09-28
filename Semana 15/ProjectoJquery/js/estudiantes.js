@@ -1,10 +1,9 @@
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarEstudiantes.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarEstudiantes.php";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarEstudiantes.php";
 
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"));
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
 const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 
@@ -50,7 +49,7 @@ function ajustarDatosTabla(datos){
                         <td>${objetoindividual.idCarreras}</td>
                         <td>${objetoindividual.usuario}</td>
                         <td>
-                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.cedula}','${objetoindividual.correoelectronico}','${objetoindividual.telefono}','${objetoindividual.telefonocelular}','${objetoindividual.fechanacimiento}','${objetoindividual.sexo}','${objetoindividual.direccion}','${objetoindividual.nombre}','${objetoindividual.apellidopaterno}','${objetoindividual.apellidomaterno}','${objetoindividual.nacionalidad}','${objetoindividual.idCarreras}')">Editar</a>
+                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.cedula}','${objetoindividual.nombre}','${objetoindividual.apellidopaterno}','${objetoindividual.apellidomaterno}','${objetoindividual.nacionalidad}','${objetoindividual.direccion}','${objetoindividual.correoelectronico}','${objetoindividual.telefono}','${objetoindividual.telefonocelular}','${objetoindividual.fechanacimiento}','${objetoindividual.sexo}','${objetoindividual.idCarreras}')">Editar</a>
                         ||
                         <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarEliminarModal('${objetoindividual.id}')">Eliminar</a>
                         </td>
@@ -76,18 +75,18 @@ function ajustarDatosTabla(datos){
     
     function crearDatos(){
         var datosEnviar = {
-            cedula: $("#cedula").val(),
-            nombre: $("#nombre").val(),
-            apellidopaterno: $("#apellidopaterno").val(),
-            apellidomaterno: $("#apellidomaterno").val(),
-            nacionalidad: $("#nacionalidad").val(),
-            direccion: $("#direccion").val(),
-            correoelectronico: $("#correoelectronico").val(),
-            telefono: $("#telefono").val(),
-            telefonocelular: $("#telefonocelular").val(),
-            fechanacimiento: $("#fechanacimiento").val(),
-            sexo: $("#sexo").val(),
-            idCarreras: $("#idCarreras").val(),
+            cedula: $("#cedulaCrear").val(),
+            nombre: $("#nombreCrear").val(),
+            apellidopaterno: $("#apellidopaternoCrear").val(),
+            apellidomaterno: $("#apellidomaternoCrear").val(),
+            nacionalidad: $("#nacionalidadCrear").val(),
+            direccion: $("#direccionCrear").val(),
+            correoelectronico: $("#correoelectronicoCrear").val(),
+            telefono: $("#telefonoCrear").val(),
+            telefonocelular: $("#telefonocelularCrear").val(),
+            fechanacimiento: $("#fechanacimientoCrear").val(),
+            sexo: $("#sexoCrear").val(),
+            idCarreras: $("#idCarrerasCrear").val(),
             usuario: "Arkin",
         }
         console.log(datosEnviar);
@@ -98,9 +97,9 @@ function ajustarDatosTabla(datos){
             data: JSON.stringify(datosEnviar),
             dataType: "json",
             success: function (response) {
-                console.log(response);
-                // modalSuccess.show()
                 completeInsert();
+                console.log(response);
+                
             },
             error: function(xhr, textstatus, errorthrown){
                 console.log("Error ", errorthrown);
@@ -108,21 +107,27 @@ function ajustarDatosTabla(datos){
     });
     }
 
+    function completeInsert(){
+        myModalCrear.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}
+
 
     function mostrarEditarModal (id, cedula, nombre, apellidopaterno, apellidomaterno, nacionalidad, direccion, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, idCarreras){
         $("#id").val(id);
-        $("#cedula").val(cedula),
-        $("#nombre").val(nombre),
-        $("#apellidopaterno").val(apellidopaterno),
-        $("#apellidomaterno").val(apellidomaterno),
-        $("#nacionalidad").val(nacionalidad),
-        $("#direccion").val(direccion),
-        $("#correoelectronico").val(correoelectronico),
-        $("#telefono").val(telefono),
-        $("#telefonocelular").val(telefonocelular),
-        $("#fechanacimiento").val(fechanacimiento),
-        $("#sexo").val(sexo),
-        $("#idCarreras").val(idCarreras);
+        $("#cedulaEditar").val(cedula),
+        $("#nombreEditar").val(nombre),
+        $("#apellidopaternoEditar").val(apellidopaterno),
+        $("#apellidomaternoEditar").val(apellidomaterno),
+        $("#nacionalidadEditar").val(nacionalidad),
+        $("#direccionEditar").val(direccion),
+        $("#correoelectronicoEditar").val(correoelectronico),
+        $("#telefonoEditar").val(telefono),
+        $("#telefonocelularEditar").val(telefonocelular),
+        $("#fechanacimientoEditar").val(fechanacimiento),
+        $("#sexoEditar").val(sexo),
+        $("#idCarrerasEditar").val(idCarreras);
         myModalEditar.show();
     }
 
@@ -130,18 +135,18 @@ function ajustarDatosTabla(datos){
         e.preventDefault();
         var datosEditar = {
             "id": $("#id").val(),
-            "cedula": $("#cedula").val(),
-            "nombre": $("#nombre").val(),
-            "apellidopaterno": $("#apellidopaterno").val(),
-            "apellidomaterno": $("#apellidomaterno").val(),
-            "nacionalidad": $("#nacionalidad").val(),
-            "direccion": $("#direccion").val(),
-            "correoelectronico": $("#correoelectronico").val(),
-            "telefono": $("#telefono").val(),
-            "telefonocelular": $("#telefonocelular").val(),
-            "fechanacimiento": $("#fechanacimiento").val(),
-            "sexo": $("#sexo").val(),
-            "idCarreras": $("#idCarreras").val(),
+            "cedula": $("#cedulaEditar").val(),
+            "nombre": $("#nombreEditar").val(),
+            "apellidopaterno": $("#apellidopaternoEditar").val(),
+            "apellidomaterno": $("#apellidomaternoEditar").val(),
+            "nacionalidad": $("#nacionalidadEditar").val(),
+            "direccion": $("#direccionEditar").val(),
+            "correoelectronico": $("#correoelectronicoEditar").val(),
+            "telefono": $("#telefonoEditar").val(),
+            "telefonocelular": $("#telefonocelularEditar").val(),
+            "fechanacimiento": $("#fechanacimientoEditar").val(),
+            "sexo": $("#sexoEditar").val(),
+            "idCarreras": $("#idCarrerasEditar").val(),
             "usuario": "Arkin"
         }
 
@@ -153,8 +158,6 @@ function ajustarDatosTabla(datos){
         success: function (response) {
             completeEdit();
             console.log(response);
-            // modalSuccess.show()
-            // completeInsert();
         },
         error: function(xhr, textstatus, errorthrown){
             console.log("Error ", errorthrown);
@@ -186,7 +189,6 @@ function completeEdit() {
             success: function (response) {
                 completeDelete();
                 console.log(response);
-                // modalSuccess.show()
             },
             error: function(xhr, textstatus, errorthrown){
                 console.log("Error ", errorthrown);
@@ -199,7 +201,3 @@ function completeDelete() {
     tablaresultado.innerHTML = ``;
     cargarDatos();
 }  
-
-function completeInsert(){
-    window.location = 'estudiantes.html';
-}

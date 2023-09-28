@@ -1,12 +1,9 @@
-// var formulario = document.getElementById('formulario');
-// const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php";
 
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"));
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
 const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 
@@ -33,9 +30,7 @@ $.ajax({
 }
 
     function ajustarDatosTabla(datos){
-        console.log("datos"+datos);
         for (const objetoindividual of datos) {
-            // console.log(objetoindividual);
             tablaresultado.innerHTML += `
             <tr class="table-light" >
                             <td scope="row">${objetoindividual.id}</td>
@@ -72,9 +67,9 @@ $.ajax({
 
         function crearDatos(){
                 var datosEnviar = {
-                        "nombre": $("#nombre").val(),
-                        "descripcion": $("#descripcion").val(),
-                        "tiempo": $("#tiempo").val(),
+                        "nombre": $("#nombreCrear").val(),
+                        "descripcion": $("#descripcionCrear").val(),
+                        "tiempo": $("#tiempoCrear").val(),
                         "usuario": "Arkin",
                     }
                     
@@ -84,9 +79,8 @@ $.ajax({
                     data: JSON.stringify(datosEnviar),
                     dataType: "json",
                     success: function (response) {
-                        console.log(response);
-                        // modalSuccess.show()
                         completeInsert();
+                        console.log(response);
                     },
                     error: function(xhr, textstatus, errorthrown){
                         console.log("Error ", errorthrown);
@@ -95,12 +89,19 @@ $.ajax({
             }
 
 
+            function completeInsert() {
+                myModalCrear.hide();
+                tablaresultado.innerHTML = ``;
+                cargarDatos();
+            }
+
+
 
         function mostrarEditarModal (id, nombre, descripcion, tiempo){
             $("#id").val(id);
-            $("#nombre").val(nombre);
-            $("#descripcion").val(descripcion);
-            $("#tiempo").val(tiempo);
+            $("#nombreEditar").val(nombre);
+            $("#descripcionEditar").val(descripcion);
+            $("#tiempoEditar").val(tiempo);
             myModalEditar.show();
         }
 
@@ -108,11 +109,12 @@ $.ajax({
             e.preventDefault();
             var datosEditar = {
                 "id": $("#id").val(),
-                "nombre": $("#nombre").val(),
-                "descripcion": $("#descripcion").val(),
-                "tiempo": $("#tiempo").val(),
+                "nombre": $("#nombreEditar").val(),
+                "descripcion": $("#descripcionEditar").val(),
+                "tiempo": $("#tiempoEditar").val(),
                 "usuario": "Arkin"
             }
+            console.log(datosEditar);
         $.ajax({
             type: "POST",
             url: editar,
@@ -121,8 +123,6 @@ $.ajax({
             success: function (response) {
                 completeEdit();
                 console.log(response);
-                // modalSuccess.show()
-                // completeInsert();
             },
             error: function(xhr, textstatus, errorthrown){
                 console.log("Error ", errorthrown);
@@ -137,43 +137,33 @@ function completeEdit() {
 }
     
 
-        function mostrarEliminarModal(){
-            myModalEliminar.show();
-        }
-
-    
-$("#Borrar").click(function (id) { 
+function mostrarEliminarModal(id){
     eliminarDato(id);
-});
+    myModalEliminar.show();
+}
 
-        function eliminarDato(id){
-            var datosEliminar = {
-                "id": id
-            }
-
-            $.ajax({
-                type: "POST",
-                url: eliminar,
-                data: JSON.stringify(datosEliminar),
-                dataType: "json",
-                success: function (response) {
-                    completeDelete();
-                    console.log(response);
-                    // modalSuccess.show()
-                },
-                error: function(xhr, textstatus, errorthrown){
-                    console.log("Error ", errorthrown);
-            }
-        });
+function eliminarDato(id){
+    var datosEliminar = {
+        "id":id
     }
 
-
-        function completeDelete(){
-            myModalEliminar.hide();
-            tablaresultado.innerHTML = ``;
-            cargarDatos();
-        }
-
-function completeInsert(){
-    window.location = 'cursos.html';
+    $.ajax({
+        type: "POST",
+        url: eliminar,
+        data: JSON.stringify(datosEliminar),
+        dataType: "json",
+        success: function (response) {
+            completeDelete();
+            console.log(response);
+        },
+        error: function(xhr, textstatus, errorthrown){
+            console.log("Error ", errorthrown);
+    }
+});
 }
+
+function completeDelete() {
+myModalEliminar.hide();
+tablaresultado.innerHTML = ``;
+cargarDatos();
+} 

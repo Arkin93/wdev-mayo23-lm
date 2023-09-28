@@ -1,31 +1,30 @@
-var formulario = document.getElementById('formulario');
-const modalSuccess = new bootstrap.Modal(document.getElementById('modalSuccess'))
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
-var apicrear = "AutenticarUsuario.php";
+var crear = "https://paginas-web-cr.com/ApiPHP/apis/AutenticarUsuario.php";
 
-formulario.addEventListener('submit', function(e)
-{
+$("#Enviar").click(function (e) { 
     e.preventDefault();
-
-    var datosEnviar = {
-        "email":document.getElementById('email').value,
-        "password":document.getElementById('password').value,
-    }
-
-    console.log(datosEnviar);
-    apiurl = apibase + apicrear;
-    fetch(apiurl,
-        {
-            method: 'POST',
-            body: JSON.stringify(datosEnviar)
-        })
-    .then(estructura => estructura.json())
-    .then((datosrespuesta) => {
-            // modalSuccess.show()
-            completeInsert()
-    })
-    .catch(console.log);
+    crearDatos();
 });
+
+function crearDatos(){
+var datosEnviar = {
+email: $("#email").val(),
+password: $("#password").val(),
+}
+
+$.ajax({
+type: "POST",
+url: crear,
+data: JSON.stringify(datosEnviar),
+dataType: "json",
+success: function (response) {
+    completeInsert();
+    console.log(response);
+},
+error: function(xhr, textstatus, errorthrown){
+    console.log("Error ", errorthrown);
+}
+});
+}
 
 function completeInsert(){
     window.location = 'index.html';

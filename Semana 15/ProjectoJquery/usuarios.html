@@ -53,22 +53,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="myModalSuccess" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="modalTitleId">Añadiendo usuario</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  Ingreso exitoso
-              </div>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="modal fade" id="myModalCrear" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal fade" id="myModalCrear" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,20 +63,16 @@
             <div class="modal-body">
               <form id="formulario">
                 <div class="mb-3">
-                  <label for="" class="form-label">ID</label>
-                  <input disabled type="text" name="id" id="id" class="form-control" placeholder="" aria-describedby="helpId">
-                </div>
-                <div class="mb-3">
                   <label for="" class="form-label">Nombre</label>
-                  <input required type="text" name="name" id="name" class="form-control" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                  <input required type="text" name="nameCrear" id="nameCrear" class="form-control" aria-describedby="helpId" placeholder="Ingresa el nombre">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Correo electronico</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+                    <input type="email" name="emailCrear" id="emailCrear" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
                   </div>
                  <div class="mb-3">
                   <label for="" class="form-label">Contraseña</label>
-                  <input required type="text" name="password" id="password" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+                  <input required type="text" name="passwordCrear" id="passwordCrear" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
                 </div>
                 <div class="modal-footer">
                   <button type="reset" class="btn btn-danger">Reset</button>
@@ -120,15 +101,15 @@
               </div>
               <div class="mb-3">
                 <label for="" class="form-label">Nombre</label>
-                <input required type="text" name="name" id="name" class="form-control" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                <input required type="text" name="nameEditar" id="nameEditar" class="form-control" aria-describedby="helpId" placeholder="Ingresa el nombre">
               </div>
               <div class="mb-3">
                   <label for="" class="form-label">Correo electronico</label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+                  <input type="email" name="emailEditar" id="emailEditar" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
                 </div>
                <div class="mb-3">
                 <label for="" class="form-label">Contraseña</label>
-                <input required type="text" name="password" id="password" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
+                <input required type="text" name="passwordEditar" id="passwordEditar" class="form-control" placeholder="Inserte el correo electronico" aria-describedby="helpId">
               </div>
               <div class="modal-footer">
                 <button type="submit" id="Actualizar" name="Actualizar" class="btn btn-success">Enviar</button>

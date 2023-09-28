@@ -1,15 +1,15 @@
-// var formulario = document.getElementById('formulario');
-// const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
-const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
-const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php";
 
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"));
+const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
+const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
+
+let tablaresultado = document.querySelector('#tablaresultado');
+
 $(document).ready(function () {
-    let tablaresultado = document.querySelector('#tablaresultado');
     cargarDatos();
 });
 
@@ -19,7 +19,7 @@ $.ajax({
     url: listar,
     dataType: "json",
     success: function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         ajustarDatosTabla(response.data);
     },
 
@@ -31,9 +31,7 @@ $.ajax({
 
 
 function ajustarDatosTabla(datos){
-    console.log("datos"+datos);
     for (const objetoindividual of datos) {
-
         tablaresultado.innerHTML += `
         <tr class="table-light" >
                         <td scope="row">${objetoindividual.id}</td>
@@ -67,9 +65,9 @@ function ajustarDatosTabla(datos){
 
     function crearDatos(){
     var datosEnviar = {
-        name: $("#name").val(),
-        email: $("#email").val(),
-        password: $("#password").val(),
+        name: $("#nameCrear").val(),
+        email: $("#emailCrear").val(),
+        password: $("#passwordCrear").val(),
     }
 
     $.ajax({
@@ -78,9 +76,8 @@ function ajustarDatosTabla(datos){
         data: JSON.stringify(datosEnviar),
         dataType: "json",
         success: function (response) {
-            console.log(response);
-            // modalSuccess.show()
             completeInsert();
+            console.log(response);
         },
         error: function(xhr, textstatus, errorthrown){
             console.log("Error ", errorthrown);
@@ -88,27 +85,28 @@ function ajustarDatosTabla(datos){
 });
 }
 
+function completeInsert(){
+    myModalCrear.hide();
+tablaresultado.innerHTML = ``;
+cargarDatos();
+}
+
 
 function mostrarEditarModal (id, name, email, password){
     $("#id").val(id);
-    $("#name").val(name);
-    $("#email").val(email);
-    $("#password").val(password);
+    $("#nameEditar").val(name);
+    $("#emailEditar").val(email);
+    $("#passwordEditar").val(password);
     myModalEditar.show();
 }
-
-$("#Editar").click(function (e) { 
-    e.preventDefault();
-    mostrarEditarModal();
-});
 
 $("#Actualizar").click(function (e) { 
     e.preventDefault();
     var datosEditar = {
         id: $("#id").val(),
-        name: $("#name").val(),
-        email: $("#email").val(),
-        password: $("#password").val(),
+        name: $("#nameEditar").val(),
+        email: $("#emailEditar").val(),
+        password: $("#passwordEditar").val(),
         usuario: "Arkin",
     }
 console.log(datosEditar.data);
@@ -118,9 +116,8 @@ $.ajax({
     data: JSON.stringify(datosEditar),
     dataType: "json",
     success: function (response) {
+        completeEdit();
         console.log(response);
-        // modalSuccess.show()
-        // completeInsert();
     },
     error: function(xhr, textstatus, errorthrown){
         console.log("Error ", errorthrown);
@@ -128,8 +125,40 @@ $.ajax({
 });
 });
 
-
-
-function completeInsert(){
-    window.location = 'usuarios.html';
+function completeEdit() {
+    myModalEditar.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
 }
+
+
+function mostrarEliminarModal(id){
+    eliminarDato(id);
+    myModalEliminar.show();
+}
+
+function eliminarDato(id){
+    var datosEliminar = {
+        "id":id
+    }
+
+    $.ajax({
+        type: "POST",
+        url: eliminar,
+        data: JSON.stringify(datosEliminar),
+        dataType: "json",
+        success: function (response) {
+            completeDelete();
+            console.log(response);
+        },
+        error: function(xhr, textstatus, errorthrown){
+            console.log("Error ", errorthrown);
+    }
+});
+}
+
+function completeDelete() {
+myModalEliminar.hide();
+tablaresultado.innerHTML = ``;
+cargarDatos();
+} 

@@ -1,17 +1,15 @@
-// var formulario = document.getElementById('formulario');
-// const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'))
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
-const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
-const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
-var apibase = "https://paginas-web-cr.com/ApiPHP/apis/";
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarProfesores.php";
 var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarProfesores.php";
 var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaProfesores.php";
 var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarProfesores.php";
 
+const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"))
+const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
+const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
+
+let tablaresultado = document.querySelector('#tablaresultado');
 
 $(document).ready(function () {
-    let tablaresultado = document.querySelector('#tablaresultado');
     cargarDatos();
 });
 
@@ -21,7 +19,7 @@ $.ajax({
     url: listar,
     dataType: "json",
     success: function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         ajustarDatosTabla(response.data);
     },
 
@@ -52,7 +50,7 @@ function ajustarDatosTabla(datos){
                         <td>${objetoindividual.idCarreras}</td>
                         <td>${objetoindividual.usuario}</td>
                         <td>
-                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.cedula}','${objetoindividual.correoelectronico}','${objetoindividual.telefono}','${objetoindividual.telefonocelular}','${objetoindividual.fechanacimiento}','${objetoindividual.sexo}','${objetoindividual.direccion}','${objetoindividual.nombre}','${objetoindividual.apellidopaterno}','${objetoindividual.apellidomaterno}','${objetoindividual.nacionalidad}','${objetoindividual.idCarreras}')">Editar</a>
+                        <a name="Editar" id="Editar" class="btn btn-warning"role="button" onclick="mostrarEditarModal('${objetoindividual.id}','${objetoindividual.cedula}','${objetoindividual.nombre}','${objetoindividual.apellidopaterno}','${objetoindividual.apellidomaterno}','${objetoindividual.nacionalidad}','${objetoindividual.direccion}','${objetoindividual.correoelectronico}','${objetoindividual.telefono}','${objetoindividual.telefonocelular}','${objetoindividual.fechanacimiento}','${objetoindividual.sexo}','${objetoindividual.idCarreras}')">Editar</a>
                         ||
                         <a name="Eliminar" id="Eliminar" class="btn btn-danger"role="button" onclick="mostrarEliminarModal('${objetoindividual.id}')">Eliminar</a>
                         </td>
@@ -78,18 +76,18 @@ function ajustarDatosTabla(datos){
     
     function crearDatos(){
         var datosEnviar = {
-            cedula: $("#cedula").val(),
-            nombre: $("#nombre").val(),
-            apellidopaterno: $("#apellidopaterno").val(),
-            apellidomaterno: $("#apellidomaterno").val(),
-            nacionalidad: $("#nacionalidad").val(),
-            direccion: $("#direccion").val(),
-            correoelectronico: $("#correoelectronico").val(),
-            telefono: $("#telefono").val(),
-            telefonocelular: $("#telefonocelular").val(),
-            fechanacimiento: $("#fechanacimiento").val(),
-            sexo: $("#sexo").val(),
-            idCarreras: $("#idCarreras").val(),
+            cedula: $("#cedulaCrear").val(),
+            nombre: $("#nombreCrear").val(),
+            apellidopaterno: $("#apellidopaternoCrear").val(),
+            apellidomaterno: $("#apellidomaternoCrear").val(),
+            nacionalidad: $("#nacionalidadCrear").val(),
+            direccion: $("#direccionCrear").val(),
+            correoelectronico: $("#correoelectronicoCrear").val(),
+            telefono: $("#telefonoCrear").val(),
+            telefonocelular: $("#telefonocelularCrear").val(),
+            fechanacimiento: $("#fechanacimientoCrear").val(),
+            sexo: $("#sexoCrear").val(),
+            idCarreras: $("#idCarrerasCrear").val(),
             usuario: "Arkin",
         }
         console.log(datosEnviar);
@@ -100,9 +98,8 @@ function ajustarDatosTabla(datos){
             data: JSON.stringify(datosEnviar),
             dataType: "json",
             success: function (response) {
-                console.log(response);
-                // modalSuccess.show()
                 completeInsert();
+                console.log(response);
             },
             error: function(xhr, textstatus, errorthrown){
                 console.log("Error ", errorthrown);
@@ -110,21 +107,27 @@ function ajustarDatosTabla(datos){
     });
     }
 
+    function completeInsert(){
+        myModalCrear.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}
+
 
     function mostrarEditarModal (id, cedula, nombre, apellidopaterno, apellidomaterno, nacionalidad, direccion, correoelectronico, telefono, telefonocelular, fechanacimiento, sexo, idCarreras){
         $("#id").val(id);
-        $("#cedula").val(cedula),
-        $("#nombre").val(nombre),
-        $("#apellidopaterno").val(apellidopaterno),
-        $("#apellidomaterno").val(apellidomaterno),
-        $("#nacionalidad").val(nacionalidad),
-        $("#direccion").val(direccion),
-        $("#correoelectronico").val(correoelectronico),
-        $("#telefono").val(telefono),
-        $("#telefonocelular").val(telefonocelular),
-        $("#fechanacimiento").val(fechanacimiento),
-        $("#sexo").val(sexo),
-        $("#idCarreras").val(idCarreras);
+        $("#cedulaEditar").val(cedula),
+        $("#nombreEditar").val(nombre),
+        $("#apellidopaternoEditar").val(apellidopaterno),
+        $("#apellidomaternoEditar").val(apellidomaterno),
+        $("#nacionalidadEditar").val(nacionalidad),
+        $("#direccionEditar").val(direccion),
+        $("#correoelectronicoEditar").val(correoelectronico),
+        $("#telefonoEditar").val(telefono),
+        $("#telefonocelularEditar").val(telefonocelular),
+        $("#fechanacimientoEditar").val(fechanacimiento),
+        $("#sexoEditar").val(sexo),
+        $("#idCarrerasEditar").val(idCarreras);
         myModalEditar.show();
     }
 
@@ -136,20 +139,20 @@ function ajustarDatosTabla(datos){
     $("#Actualizar").click(function (e) { 
         e.preventDefault();
         var datosEditar = {
-            id: $("#id").val(),
-            cedula: $("#cedula").val(),
-            nombre: $("#nombre").val(),
-            apellidopaterno: $("#apellidopaterno").val(),
-            apellidomaterno: $("#apellidomaterno").val(),
-            nacionalidad: $("#nacionalidad").val(),
-            direccion: $("#direccion").val(),
-            correoelectronico: $("#correoelectronico").val(),
-            telefono: $("#telefono").val(),
-            telefonocelular: $("#telefonocelular").val(),
-            fechanacimiento: $("#fechanacimiento").val(),
-            sexo: $("#sexo").val(),
-            idCarreras: $("#idCarreras").val(),
-            usuario: "Arkin",
+            "id": $("#id").val(),
+            "cedula": $("#cedulaEditar").val(),
+            "nombre": $("#nombreEditar").val(),
+            "apellidopaterno": $("#apellidopaternoEditar").val(),
+            "apellidomaterno": $("#apellidomaternoEditar").val(),
+            "nacionalidad": $("#nacionalidadEditar").val(),
+            "direccion": $("#direccionEditar").val(),
+            "correoelectronico": $("#correoelectronicoEditar").val(),
+            "telefono": $("#telefonoEditar").val(),
+            "telefonocelular": $("#telefonocelularEditar").val(),
+            "fechanacimiento": $("#fechanacimientoEditar").val(),
+            "sexo": $("#sexoEditar").val(),
+            "idCarreras": $("#idCarrerasEditar").val(),
+            "usuario": "Arkin",
         }
 console.log(datosEditar.data);
     $.ajax({
@@ -158,9 +161,8 @@ console.log(datosEditar.data);
         data: JSON.stringify(datosEditar),
         dataType: "json",
         success: function (response) {
+            completeEdit();
             console.log(response);
-            // modalSuccess.show()
-            // completeInsert();
         },
         error: function(xhr, textstatus, errorthrown){
             console.log("Error ", errorthrown);
@@ -168,57 +170,40 @@ console.log(datosEditar.data);
 });
 });
 
+function completeEdit() {
+    myModalEditar.hide();
+    tablaresultado.innerHTML = ``;
+    cargarDatos();
+}
 
-    function mostrarEliminarModal(){
-        myModalEliminar.show();
+
+function mostrarEliminarModal(id){
+    eliminarDato(id);
+    myModalEliminar.show();
+}
+
+function eliminarDato(id){
+    var datosEliminar = {
+        "id":id
     }
 
-
-$("#Eliminar").click(function (e) { 
-e.preventDefault();
-mostrarEliminarModal(id);
+    $.ajax({
+        type: "POST",
+        url: eliminar,
+        data: JSON.stringify(datosEliminar),
+        dataType: "json",
+        success: function (response) {
+            completeDelete();
+            console.log(response);
+        },
+        error: function(xhr, textstatus, errorthrown){
+            console.log("Error ", errorthrown);
+    }
 });
-
-$("#Borrar").click(function (e) { 
-e.preventDefault();
-eliminarDato(id);
-});
-
-    function eliminarDato(id){
-        var datosEliminar = {
-            "id":id
-        }
-    
-        // console.log(datosEliminar);
-        // apiurl = apibase + apieliminar;
-        // fetch(apiurl,
-        //     {
-        //         method: 'POST',
-        //         body: JSON.stringify(datosEnviar)
-        //     })
-        // .then(estructura => estructura.json())
-        // .then((datosrespuesta) => {
-        //         completeDelete()
-        // })
-        // .catch(console.log);
-    
-        $.ajax({
-            type: "POST",
-            url: eliminar,
-            data: JSON.stringify(datosEliminar),
-            dataType: "json",
-            success: function (response) {
-                console.log(response);
-                // modalSuccess.show()
-            },
-            error: function(xhr, textstatus, errorthrown){
-                console.log("Error ", errorthrown);
-        }
-    });
 }
 
-   
-
-function completeInsert(){
-    window.location = 'profesores.html';
-}
+function completeDelete() {
+myModalEliminar.hide();
+tablaresultado.innerHTML = ``;
+cargarDatos();
+} 
