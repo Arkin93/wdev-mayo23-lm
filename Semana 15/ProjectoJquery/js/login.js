@@ -18,7 +18,6 @@ data: JSON.stringify(datosEnviar),
 dataType: "json",
 success: function (response) {
     completeInsert();
-    console.log(response);
 },
 error: function(xhr, textstatus, errorthrown){
     console.log("Error ", errorthrown);

@@ -1,9 +1,8 @@
-var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php";
-var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php";
-var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php";
-var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php";
+var listar = "https://paginas-web-cr.com/ApiPHP/apis/ListaUsuarios.php";
+var crear = "https://paginas-web-cr.com/ApiPHP/apis/InsertarUsuarios.php";
+var editar = "https://paginas-web-cr.com/ApiPHP/apis/ActualizarUsuarios.php";
+var eliminar = "https://paginas-web-cr.com/ApiPHP/apis/BorrarUsuarios.php";
 
-const myModalEliminar = new bootstrap.Modal(document.getElementById("myModalEliminar"));
 const myModalEditar = new bootstrap.Modal(document.getElementById("myModalEditar"));
 const myModalCrear = new bootstrap.Modal(document.getElementById("myModalCrear"));
 

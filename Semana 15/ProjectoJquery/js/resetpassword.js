@@ -1,5 +1,7 @@
 var crear = "https://paginas-web-cr.com/ApiPHP/apis/SendPassword.php";
 
+const myModalSuccess = new bootstrap.Modal(document.getElementById('myModalSuccess'));
+
 $("#Enviar").click(function (e) { 
     e.preventDefault();
     crearDatos();
@@ -16,15 +18,11 @@ url: crear,
 data: JSON.stringify(datosEnviar),
 dataType: "json",
 success: function (response) {
-    completeInsert();
+    myModalSuccess.show();
     console.log(response);
 },
 error: function(xhr, textstatus, errorthrown){
     console.log("Error ", errorthrown);
 }
 });
-}
-
-function completeInsert(){
-    window.location = 'login.html';
 }

@@ -14,32 +14,62 @@
 
 </head>
 
-<body class="bg-success bg-opacity-25">
+<body>
   <header>
     <div id="menuprincipal">
     </div>
   </header>
   <main>
     <div class="container-fluid">
-        <div class="p-5 text-center">
-          <div class="container py-4 bg-light bg-opacity-50 border border-primary border-5 rounded-bottom rounded-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-            <h1 class="text-body-emphasis">Proyecto JQuery</h1>
-            <img src="img/jquery.png" width="650px" height="200px" alt="JQuery" class="mt-3 mb-3">
-            <p class="col-lg mx-auto lead fs-6">
+      <div class="row">
+        <div class="col-5">
+          <div class="container mt-5 ms-5 pt-5 ps-5">
+            <h1 class="text-body-emphasis">Proyecto</h1>
+            <img src="img/jquery.png" width="350px" height="100px" alt="JQuery" class="mt-3 mb-3">
+            <p class="col-lg mx-auto lead fs-6 mt-4">
               Como parte de su formación en el área de TI es vital el estudio y constante repaso de lo aprendido. Es por esto, que la presente tarea pretende reforzar estos conocimientos; con base a la teoría y ejemplos realizados en clase, construya un micro-sitio que sea de su tema de preferencia (Estilos y colores), y el sitio web debe utilizar un framework ( este caso deben usar Bootstrap) que lo permita ser responsive(adaptativo a los diferentes anchos de pantalla). El sitio web, debe contener un home page(index.html), debe tener un menú de navegación (debe ser en un html aparte, para que permita el mantenimiento del menu), se puede integrar con javascript. Además debe contener una plantilla adaptativa (Header,Menu, Container, Footer) El sistema que se elaborara es el siguiente, basado en el API https://paginas-web-cr.com/ApiPHP/, y utilizando javascript con framework jquery, se requiere crear los siguientes módulos.
-              <br/>
-              <br/>⚪ Estudiante, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
-              <br/>⚪ Profesor, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
-              <br/>⚪ Grupo, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
-              <br/>⚪ Curso, con base a los atributos que tiene el api se debe crear la interfaz que permita, realizar la inserción, modificación, eliminación y consulta de los datos.
+              </div>
+        </div>
+
+        <div class="col-6 mt-5 bg-secondary bg-opacity-10 position-absolute top-0 end-0 pb-5" style="height: 90%">
+          <div class="row g-2 ms-5 mt-5 position-absolute top-25 end-25">
+            <div class="col-8 col-sm-6">
+          <div class="card text-center mt-5 ms-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem; height: 10rem;">
+            <div class="card-body mt-4 fs-3 fw-bold">
+              <a href="estudiantes.html" class="card-link text-danger">Estudiantes</a>
+            </div>
+          </div>
+          <div class="card text-center mt-5 ms-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem; height: 10rem;">
+            <div class="card-body mt-4 fs-3 fw-bold">
+              <a href="grupos.html" class="card-link text-danger">Grupos</a>
+            </div>
+          </div>
+          <div class="card text-center mt-5 ms-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem; height: 10rem;">
+            <div class="card-body mt-4 fs-3 fw-bold">
+              <a href="usuarios.html" class="card-link text-danger">Usuarios</a>
+            </div>
           </div>
         </div>
+        <div class="col-8 col-sm-6">
+          <div class="card text-center mt-5 ms-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem; height: 10rem;">
+            <div class="card-body mt-4 fs-3 fw-bold">
+              <a href="profesores.html" class="card-link text-danger">Profesores</a>
+            </div>
+          </div>
+          <div class="card text-center mt-5 ms-5 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem; height: 10rem;">
+            <div class="card-body mt-4 fs-3 fw-bold">
+              <a href="cursos.html" class="card-link text-danger">Cursos</a>
+            </div>
+          </div>
       </div>
+    </div>
+    </div>
+  </div>
       
     </div>
   </main>
-  <footer class="py my border-top border-dark">
-    <p class="text-center p-3">© 2023 Arkin</p>
+  <footer class="py my">
+    <p class="text-center text-light p-3">© 2023 Arkin</p>
   </footer>
 
   <script src="js/menu.js"></script>

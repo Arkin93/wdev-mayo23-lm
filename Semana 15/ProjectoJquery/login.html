@@ -12,10 +12,18 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
-<body class="bg-success bg-opacity-25">
+<body>
   <header>
+    <nav class="navbar">
+      <a class="navbar-brand text-light ms-3" href="index.html">Projecto JQuery</a>
+</div>
+<div class="d-flex flex-row-reverse">
+          <a type="button" class="btn btn-outline-light me-2" href="login.html">Login</a>
+          </div>
+    </nav>
   </header>
   <main>
     <div class="container-fluid">
@@ -26,11 +34,11 @@
             <form id="formulario">
               <div class="mt-5">
                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Inserte el correo electronico">
+                <input type="email" class="form-control bg-secondary bg-opacity-25" name="email" id="email" aria-describedby="emailHelp" placeholder="Inserte el correo electronico">
               </div>
               <div class="mt-4">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Inserte la contraseña">
+                <input type="password" class="form-control bg-secondary bg-opacity-25" name="password" id="password" placeholder="Inserte la contraseña">
               </div>
               <div class="p-4 mt-2 form-check">
                 <p><a href="resetpassword.html" class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">Olvido la contraseña?</a></p>
@@ -41,11 +49,10 @@
             </form>
           </div>
       </div>
-      
     </div>
   </main>
-  <footer class="py my border-top border-dark">
-    <p class="text-center p-3">© 2023 Arkin</p>
+  <footer class="py my">
+    <p class="text-center text-light p-3">© 2023 Arkin</p>
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
